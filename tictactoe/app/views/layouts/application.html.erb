@@ -1,17 +1,36 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Tictactoe</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-<%= yield %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+          <li><a href="/">Home</a></li>
+          <li><a href="/games">Play Game</a></li>
+          <li><a href="/users">All Users</a></li>
+        </ul>
+        <ul>
+          <% if user_signed_in? %>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+          <% else %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Create an account", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+    </nav>
+  </div>
+
+  <body>
+
+    <%= yield %>
+
+  </body>
 </html>
