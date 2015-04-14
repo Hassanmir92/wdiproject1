@@ -27,7 +27,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
 
-    @game.user1_id = whose_move?.id
+    @game.user1_id = @game.whose_move?.id
 
     respond_to do |format|
       if @game.save
