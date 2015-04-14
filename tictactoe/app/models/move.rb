@@ -7,10 +7,10 @@ class Move < ActiveRecord::Base
   validates :character, inclusion:{ in: POSSIBLE_CHARACTERS }
   validates :value, numericality: { only_integer: true, less_than: 9 }
   validates :value, uniqueness: true
-  validate :too_many_moves?
+  # validate :too_many_moves?
 
-  def too_many_moves?
-    Game.moves.count < 10
-  end
+  # def too_many_moves?
+  #   Game.moves.count < 10
+  # end
 
 end
