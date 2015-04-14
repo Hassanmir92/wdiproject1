@@ -1,0 +1,18 @@
+<table>
+  <% table = (0..8).to_a %>
+  <% table.each_slice(3) do |slice| %>
+  <tr>
+    <% slice.each do |cell| %>
+    <td>
+      <% if @game.moves.find_by_value(cell) && @game.moves.find_by_value(cell).user_id == @game.user1_id %>
+      <%= "X" %>
+      <% elsif @game.moves.find_by_value(cell) && @game.moves.find_by_value(cell).user_id == @game.user2_id %>
+      <%= "O" %>
+      <% else %>
+      <%= link_to "EMPTY", moves_path(game_id:@game.id, value:cell, user_id:current_user.id), method: :post %>
+      <% end %>
+    </td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>

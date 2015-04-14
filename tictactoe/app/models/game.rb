@@ -7,7 +7,7 @@ class Game < ActiveRecord::Base
   validates :user2_id, presence: true
 
   # a method giving moves for a game instance for a specific user 
-  # WIN_COMBO = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+  WIN_COMBO = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
 
   def whose_move?
     if moves.last.try(:user_id) == user1_id
