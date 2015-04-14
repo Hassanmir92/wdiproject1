@@ -16,5 +16,23 @@ class Game < ActiveRecord::Base
       user1
     end
   end
+
+  def board
+    board = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+    moves.each { |move| board[move.value] = move.user_id }
+    board
+  end
+
+  def game_won?
+    WIN_COMBO.detect do |condition|
+      line = condition.map { |index| board[index] }
+      line.any? && line.uniq.count == 1
+    end
+  end
+
+  def game_drawn?
+    moves.count == 9 && !game_won?
+  end
+
   
 end

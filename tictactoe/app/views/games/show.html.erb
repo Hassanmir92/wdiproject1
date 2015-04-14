@@ -4,6 +4,13 @@
 <strong><%= User.find(@game.user1_id).username %> VS <%= User.find(@game.user2_id).username %></strong>
 </p>
 
+<% if @game.game_won? %>
+<h1>WINNER!</h1>
+<% elsif @game.game_drawn? %>
+<h1>DRAW!</h1>
+<% end %>
+
+
 <%= render 'table' %>
 
 

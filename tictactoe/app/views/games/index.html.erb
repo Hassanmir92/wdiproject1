@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>User1</th>
-      <th>User2</th>
+      <th>Player 1</th>
+      <th>Player 2</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +14,8 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.user1_id %></td>
-        <td><%= game.user2_id %></td>
+        <td><%= User.find(game.user1_id).username %></td>
+        <td><%= User.find(game.user2_id).username %></td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
