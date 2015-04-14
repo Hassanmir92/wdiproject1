@@ -10,7 +10,7 @@ class Move < ActiveRecord::Base
   validate :too_many_moves?
 
   def too_many_moves?
-    game.moves.count < 10
+    Game.moves.count < 10
   end
 
 end

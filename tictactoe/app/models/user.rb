@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
   has_many :games_1, class_name:'Game', foreign_key:'user1_id'
   has_many :games_2, class_name:'Game', foreign_key:'user2_id'
   has_many :moves, through: :games
+
+  def all_games 
+    games_1 + games_2
+  end
+
 end
