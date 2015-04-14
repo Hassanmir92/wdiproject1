@@ -16,5 +16,5 @@ class Game < ActiveRecord::Base
       user1
     end
   end
-
+  
 end
