@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
-  <strong><%= User.find(@game.user1_id).username %> VS <%= User.find(@game.user2_id).username %></strong>
+  <strong><%= [@game.user1.username, @game.user2.username].join( " VS ") %></strong>
 </p>
 
 <% if @game.game_won? %>
@@ -10,8 +11,11 @@
   <h1>DRAW!</h1>
 <% end %>
 
+<% if @game.whose_move?.id == current_user.id %>
+<p>Your Turn!</p>
+<% end %>
 
-<%= render 'table' %>
+<%= render 'games/table' %>
 
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
