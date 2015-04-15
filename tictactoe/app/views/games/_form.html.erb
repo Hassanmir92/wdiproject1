@@ -5,6 +5,6 @@
     <%= f.collection_select :user2_id, User.all_except(current_user), :id, :username %>
   </div>
   <div class="actions">
-    <%= f.submit 'Start' %>
+    <%= f.submit 'Start', class: 'success button' %>
   </div>
 <% end %>
