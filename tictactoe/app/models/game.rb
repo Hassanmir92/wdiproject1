@@ -7,6 +7,8 @@ class Game < ActiveRecord::Base
   validates :user2_id, presence: true
 
   WIN_COMBO   = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+  COMPUTER_ID = 1
+
 
   def whose_move
     if moves.last.try(:user_id) == user1_id
@@ -15,6 +17,26 @@ class Game < ActiveRecord::Base
       user1
     end
   end
+
+  def user_is_computer
+    user2_id == COMPUTER_ID
+  end
+
+  def random_move
+     ((0..8).to_a - moves.map(&:value)).sample
+   end
+
+   def is_computer_move
+     moves.last.user_id != COMPUTER_ID
+   end
+
+   def computer_move
+     reload
+     if is_computer_move && !game_finished
+       moves.create!(user_id: COMPUTER_ID, value: random_move)
+     end
+   end
+
 
   def board
     board = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
