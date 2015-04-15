@@ -58,4 +58,12 @@ class Game < ActiveRecord::Base
   def game_finished
     game_won || game_draw
   end
+
+  def game_winner
+    if game_won
+      moves.last.user_id
+    end
+  end
+
+
 end
