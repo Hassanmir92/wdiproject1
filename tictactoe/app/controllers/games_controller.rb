@@ -10,7 +10,7 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-    @game.whose_move?
+    @game.whose_move
   end
 
   # GET /games/new
@@ -27,7 +27,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
 
-    @game.user1_id = @game.whose_move?.id
+    @game.user1_id = @game.whose_move.id
 
     respond_to do |format|
       if @game.save

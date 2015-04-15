@@ -8,7 +8,7 @@ class Game < ActiveRecord::Base
 
   WIN_COMBO = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
 
-  def whose_move?
+  def whose_move
     if moves.last.try(:user_id) == user1_id
       user2
     else
@@ -22,19 +22,19 @@ class Game < ActiveRecord::Base
     board
   end
 
-  def game_won?
+  def game_won
     WIN_COMBO.detect do |condition|
       line = condition.map { |index| board[index] }
       line.any? && line.uniq.count == 1
     end
   end
 
-  def game_draw?
-    moves.count == 9 && !game_won?
+  def game_draw
+    moves.count == 9 && !game_won
   end
 
-  def game_finished?
-    game_won? || game_draw?
+  def game_finished
+    game_won || game_draw
   end
   
 end

@@ -12,4 +12,12 @@ class User < ActiveRecord::Base
     games_1 + games_2
   end
 
+  def computer_user
+    self.find.try(:username) == "Computer"
+  end
+
+  def self.all_except(user)
+      where.not(id: user)
+    end
+
 end
