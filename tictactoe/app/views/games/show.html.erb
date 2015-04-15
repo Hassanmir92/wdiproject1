@@ -5,18 +5,11 @@
   <strong><%= [@game.user1.username, @game.user2.username].join( " VS ") %></strong>
 </p>
 
-<% if @game.game_won? %>
-  <h1>WINNER!</h1>
-<% elsif @game.game_drawn? %>
-  <h1>DRAW!</h1>
-<% end %>
+<%= result_for_game(@game) %>
 
-<% if @game.whose_move?.id == current_user.id %>
-<p>Your Turn!</p>
-<% end %>
+<%= current_turn_for_game(@game) %>
 
 <%= render 'games/table' %>
-
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

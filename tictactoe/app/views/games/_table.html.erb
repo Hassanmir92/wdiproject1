@@ -10,7 +10,9 @@
       <% elsif @game.moves.find_by_value(cell) && @game.moves.find_by_value(cell).user_id == @game.user2_id %>
         <%= "O" %>
       <% else %>
-        <% if @game.whose_move?.id == current_user.id %>
+        <% if @game.game_finished? %>
+          EMPTY
+        <% elsif @game.whose_move?.id == current_user.id %>
           <%= link_to "EMPTY", moves_path(game_id:@game.id, value:cell, user_id:current_user.id), method: :post %>
         <% else %>
           EMPTY

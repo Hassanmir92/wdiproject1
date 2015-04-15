@@ -29,8 +29,12 @@ class Game < ActiveRecord::Base
     end
   end
 
-  def game_drawn?
+  def game_draw?
     moves.count == 9 && !game_won?
+  end
+
+  def game_finished?
+    game_won? || game_draw?
   end
   
 end
