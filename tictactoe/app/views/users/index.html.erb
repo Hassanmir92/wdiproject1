@@ -3,6 +3,7 @@
     <tr>
       <th>Username</th>
       <th>Image</th>
+      <th>Wins</th>
     </tr>
   </thead>
 
@@ -11,7 +12,9 @@
       <tr>
         <td><%= link_to "#{user.username}", user %></td>
         <td class="profile_image_thumb"><%= image_tag user.user_image.thumb %></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+

@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   mount_uploader :user_image, UserImageUploader       
 
 
-  def all_games 
+  def games 
     games_1 + games_2
   end
 

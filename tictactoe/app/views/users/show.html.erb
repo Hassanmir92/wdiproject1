@@ -4,7 +4,7 @@
 <table>
 
 <tbody>
-<% Game.all.each do |game| %>
+<% @games.each do |game| %>
   <tr>
     <td><%= User.find(game.user1_id).username %></td>
     <td><%= User.find(game.user2_id).username %></td>
