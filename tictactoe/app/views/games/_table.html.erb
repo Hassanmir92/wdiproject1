@@ -5,15 +5,12 @@
     <td>
 
       <% if @game.moves.find_by_value(cell) %>
-
         <% if @game.moves.find_by_value(cell).user_id == @game.user1_id %>
           <%= image_tag("x.png" ,width:'50') %>
         <% elsif @game.moves.find_by_value(cell).user_id == @game.user2_id %>
           <%= image_tag("o.png", width:'50') %>
         <% end %>
-
       <% else %>
-
         <% if @game.game_finished %>
           <%= image_tag("White_square.png", width:'50') %>
         <% elsif @game.whose_move.id == current_user.id %>
@@ -21,9 +18,8 @@
         <% else %>
           <%= image_tag("White_square.png", width:'50') %>
         <% end %>
-
       <% end %>
-
+      
     </td>
     <% end %>
   </tr>

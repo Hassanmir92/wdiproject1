@@ -20,11 +20,11 @@
         <td><%= User.find(game.user1_id).username %></td>
         <td><%= User.find(game.user2_id).username %></td>
         <% if game.game_won %>
-        <td>Winner: <%= User.find(game.game_winner).username %></td>
+          <td>Winner: <%= User.find(game.game_winner).username %></td>
         <% elsif game.game_draw %>
-        <td>Draw</td>  
+          <td>Draw</td>  
         <% else %>
-        <td>Ongoing</td>
+          <td>Ongoing</td>
         <% end %>
         <td><%= link_to 'Show Fight', game %></td>
         <% if game.user1_id == current_user.id %>

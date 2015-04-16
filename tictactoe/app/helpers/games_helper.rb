@@ -18,3 +18,4 @@ module GamesHelper
   end
 
 end
+

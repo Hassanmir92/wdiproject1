@@ -12,13 +12,12 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-  <div class="contain-to-grid sticky">
+<div class="contain-to-grid sticky">
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
         <h1><a href="/">TicTacToe</a></h1>
       </li>
-       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
 
@@ -32,29 +31,29 @@
       </ul>
       <ul class="right">
         <% if user_signed_in? %>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-          <li>
-            <%= link_to user_path(current_user) do %>
-              <%= image_tag(current_user.user_image.topbarthumb) %>
-              <%= current_user.username %>
-            <% end %>
-          </li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+        <li>
+          <%= link_to user_path(current_user) do %>
+          <%= image_tag(current_user.user_image.topbarthumb) %>
+          <%= current_user.username %>
+          <% end %>
+        </li>
 
       </ul>
-        <% else %>
-        <ul>
-          <li><%= link_to "Login", new_user_session_path %></li>
-          <li><%= link_to "Create an account", new_user_registration_path %></li>
+      <% else %>
+      <ul>
+        <li><%= link_to "Login", new_user_session_path %></li>
+        <li><%= link_to "Create an account", new_user_registration_path %></li>
         <% end %>
       </ul>
     </section>
   </nav>
 </div>
 
-  <body class="row">
+<body class="row">
 
-    <%= yield %>
+  <%= yield %>
 
-  </body>
+</body>
 </html>
