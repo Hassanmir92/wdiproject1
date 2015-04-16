@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  mount_uploader :user_image, UserImageUploader       
+
   has_many :games_1, class_name:'Game', foreign_key:'user1_id'
   has_many :games_2, class_name:'Game', foreign_key:'user2_id'
   has_many :moves, through: :games
