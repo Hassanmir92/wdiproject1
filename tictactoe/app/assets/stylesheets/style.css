@@ -13,6 +13,7 @@
 } 
 
 body {
+  background-image: url('452800.jpg');
   margin-left:auto;
   margin-right:auto;
   width:960px;
@@ -36,6 +37,5 @@ table {
 table tbody tr .profile_image_thumb img {
   border-radius: 50px ;
 }
-
 
 
