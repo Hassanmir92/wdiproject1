@@ -1,18 +1,18 @@
+<h1>Warriors!</h1>
+
 <table>
   <thead>
     <tr>
+      <th> </th>
       <th>Username</th>
-      <th>Image</th>
-      <th>Wins</th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to "#{user.username}", user %></td>
         <td class="profile_image_thumb"><%= image_tag user.user_image.thumb %></td>
-        <td></td>
+        <td><%= link_to "#{user.username}", user %></td>
       </tr>
     <% end %>
   </tbody>
