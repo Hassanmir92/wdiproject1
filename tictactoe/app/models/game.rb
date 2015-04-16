@@ -60,10 +60,7 @@ class Game < ActiveRecord::Base
   end
 
   def game_winner
-    if game_won
-      moves.last.user_id
-    end
+    moves.last.user_id if game_won
   end
-
 
 end
