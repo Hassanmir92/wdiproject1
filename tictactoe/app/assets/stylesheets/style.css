@@ -1,6 +1,4 @@
  form {
-  border: 1px solid rgba(0,0,0,.1);
-  border-width: 0 1px 1px;
   min-width: 240px;
   max-width: 512px;
   padding: 1.5em;
@@ -40,5 +38,6 @@ h1 {
 table tbody tr .profile_image_thumb img {
   border-radius: 50px ;
 }
+
 
 

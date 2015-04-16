@@ -1,6 +1,6 @@
 <%= form_for(@game) do |f| %>
   <div class="field">
-    <%= f.label :user2_id, 'Who would you like to play?' %><br>
+    <%= f.label :user2_id, 'Who would you like to fight?' %><br>
     <%= hidden_field_tag 'game[user1_id]', current_user.id %>
     <%= f.collection_select :user2_id, User.all_except(current_user), :id, :username %>
   </div>
