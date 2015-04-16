@@ -35,6 +35,11 @@ class UserImageUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :resize_to_fill => [50, 50]
   end
+
+  version :topbarthumb do
+    process :resize_to_fill => [30, 30]
+  end
+
   version :detail do
     process :resize_to_fill => [200, 200]
   end
