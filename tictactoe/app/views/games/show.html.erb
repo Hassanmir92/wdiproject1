@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>
-  <strong><%= [@game.user1.username, @game.user2.username].join( " VS ") %></strong>
-</p>
+<h1><strong><%= [@game.user1.username, @game.user2.username].join( " VS ") %></strong></h1>
 
 <%= result_for_game(@game) %>
 

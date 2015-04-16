@@ -26,7 +26,10 @@ table {
   margin-right:auto;
   border: 5px solid black;
   border-radius: 10px;
+}
 
+h1 {
+  font-family: 'Shadows Into Light', cursive;
 }
 
 .profile_image_detail img {
